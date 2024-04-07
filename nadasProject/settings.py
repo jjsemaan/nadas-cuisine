@@ -61,8 +61,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            #os.path.join(BASE_DIR, 'templates'),  # Include project-level templates directory
-            #os.path.join(BASE_DIR, 'nadasProject', 'templates'),  # Include app-level templates director
+            os.path.join(BASE_DIR, 'templates'),  # Include project-level templates directory
+            os.path.join(BASE_DIR, 'nadasProject', 'templates'),  # Include app-level templates director
             ],
         'APP_DIRS': True,
         'OPTIONS': {
