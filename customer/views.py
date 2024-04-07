@@ -24,8 +24,8 @@ class Order(View):
         context = {
             'appetizers': appetizers,
             'entres': entres,
-            'desserts': desserts,
-            'drinks': drinks,
+            # 'desserts': desserts,
+            # 'drinks': drinks,
         }
 
         # render the template

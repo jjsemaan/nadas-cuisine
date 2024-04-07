@@ -71,13 +71,12 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
                             href="#">Logout</a>
-                            <!-- {% url 'account_logout' %} -->
+                            <!-- "% url 'account_logout' %  % url 'account_signup' %" -->
                     </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                             href="#">Register</a>
-                            <!-- % url 'account_signup' % -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
