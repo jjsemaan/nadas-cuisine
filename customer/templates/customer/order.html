@@ -29,15 +29,15 @@
                 </div>
 
                 <div class="pt-5">
-                    {% for entre in plates %}
+                    {% for plate in plates %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ entre.image.url }}" width="150" height="100"/>
+                            <img class="rounded" src="{{ plate.image.url }}" width="150" height="100"/>
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ entre.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ plate.pk }}">
                                     <label class="form-check-label">{{ plate.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">{{ plate.price }}</p>
