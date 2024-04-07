@@ -125,8 +125,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Base directory of your project
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# URL to use when referring to static files (e.g., in a browser)
+STATIC_URL = '/static/'
+
+# Additional locations the staticfiles app will traverse to collect static files in 'collectstatic'
+STATICFILES_DIRS = [
+    BASE_DIR / "staticfiles",
+    # os.path.join(BASE_DIR, "staticfiles"),  # Alternative using os.path.join
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
