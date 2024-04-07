@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from .models import MenuItem, Category, OrderModel
 
 
 # Create your views here.
@@ -16,7 +17,7 @@ class Order(View):
         # get every item from each category
         appetisers = MenuItem.objects.filter(
             category__name__contains='Appetiser')
-        entres = MenuItem.objects.filter(category__name__contains='Plate')
+        plates = MenuItem.objects.filter(category__name__contains='Plate')
         desserts = MenuItem.objects.filter(category__name__contains='Dessert')
         drinks = MenuItem.objects.filter(category__name__contains='Drink')
 
@@ -25,7 +26,7 @@ class Order(View):
             'appetisers': appetisers,
             'plates': plates,
             'desserts': desserts,
-            # 'drinks': drinks,
+            'drinks': drinks,
         }
 
         # render the template
