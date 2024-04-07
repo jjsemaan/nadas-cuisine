@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com','.herokuapp.com']
 
 
 # Application definition
