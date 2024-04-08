@@ -76,3 +76,8 @@ header.masthead .site-heading .subheading {
 }
 
 
+/* orderconfirm.html */
+
+.place-order-btn {
+    margin-bottom: 100px;
+}

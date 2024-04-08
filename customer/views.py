@@ -64,4 +64,4 @@ class Order(View):
             'price': price
         }
 
-        return render(request, 'customer/order_confirmation.html', context)
+        return render(request, 'customer/orderconfirm.html', context)
