@@ -9,7 +9,7 @@ class MenuItem(models.Model):
     name = models.CharField(max_length=100)  # Name of the menu item.
     description = models.TextField()  # Description of the menu item.
     price = models.DecimalField(max_digits=5, decimal_places=2)  # Price of the menu item.
-    quantity = models.IntegerField()  # Quantity of the menu item available.
+    quantity = models.IntegerField(default=1)  # Quantity of the menu item available.
     category = models.ManyToManyField('Category', related_name='item') # models.CharField(max_length=255)  # Category of the menu item.
     image_url = models.URLField(max_length=1024, blank=True, null=True)  # URL of the image
 
