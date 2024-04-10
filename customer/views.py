@@ -12,6 +12,10 @@ class About(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/about.html')
 
+class Contact(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'customer/contact.html')
+
 class Order(View):
     def get(self, request, *args, **kwargs):
         # get every item from each category
