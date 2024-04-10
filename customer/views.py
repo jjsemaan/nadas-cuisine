@@ -1,7 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import MenuItem, Category, OrderModel
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.http import HttpResponse
 
+# Function-based view
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            # Redirect to a new URL:
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
+
+@login_required
+def Login(request):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'registration/login.html')
 
 # Create your views here.
 class Index(View):

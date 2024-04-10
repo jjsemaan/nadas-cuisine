@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'kitchen',
 ]
 
+# Specify the path to your login template
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

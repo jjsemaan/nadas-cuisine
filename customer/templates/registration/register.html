@@ -1,0 +1,11 @@
+<!-- customer/templates/customer/register.html -->
+{% extends "customer/base.html" %}  <!-- Or your base template if you have one -->
+
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+{% endblock content %}
