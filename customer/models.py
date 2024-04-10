@@ -1,15 +1,7 @@
-from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # other fields...
-
 class MenuItem(models.Model):
     # Define the MenuItem model representing items in the menu.
     item_id = models.BigAutoField(primary_key=True)  # Unique identifier for the menu item.
@@ -25,6 +17,9 @@ class MenuItem(models.Model):
         return self.name
 
 class Category(models.Model):
+    """
+    Represents a category for menu items.
+    """
     name = models.CharField(max_length=100)
     
     # Returns the name of the category.
@@ -32,6 +27,9 @@ class Category(models.Model):
         return self.name
 
 class OrderModel(models.Model):
+    """
+    Represents an order made by a customer, including its items and total price.
+    """
     created_on = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     items = models.ManyToManyField(
