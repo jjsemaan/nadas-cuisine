@@ -36,9 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dbbackup',
     'customer',
     'kitchen',
 ]
+
+# Backup locations
+# for manual backups use python manage.py dbbackup
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': 'C:/Django BackUps'}
 
 # Specify the path to your login template
 SITE_ID = 1
@@ -108,6 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Extend User Profile.
+AUTH_USER_MODEL = 'auth.User'
 
 # Email verification is disabled in this project.
 ACCOUNT_EMAIL_VERIFICATION = 'none'
