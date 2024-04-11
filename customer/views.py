@@ -1,31 +1,26 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import MenuItem, Category, OrderModel
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin  # Use for class-based views
 from django.http import HttpResponse
 
-# Function-based view
+# Simplified and cleaned up for clarity and efficiency
+
+# Registration View
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            # Redirect to a new URL:
-            return redirect('index')
+            login(request, user)  # Log in the new user immediately after registration
+            return redirect('index')  # Redirect to the homepage or another appropriate page
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
 
-@login_required
-def Login(request):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'registration/login.html')
-
-# Create your views here.
+# Class-based views for pages
 class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/index.html')
@@ -38,24 +33,10 @@ class Contact(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/contact.html')
 
-class Order(View):
+class Order(LoginRequiredMixin, View):  # Ensure only logged-in users can access this view
     def get(self, request, *args, **kwargs):
-        # get every item from each category
-        appetisers = MenuItem.objects.filter(
-            category__name__contains='Appetiser')
-        plates = MenuItem.objects.filter(category__name__contains='Plate')
-        desserts = MenuItem.objects.filter(category__name__contains='Dessert')
-        drinks = MenuItem.objects.filter(category__name__contains='Drink')
-
-        # pass into context
-        context = {
-            'appetisers': appetisers,
-            'plates': plates,
-            'desserts': desserts,
-            'drinks': drinks,
-        }
-
-        # render the template
+        categories = ['Appetiser', 'Plate', 'Dessert', 'Drink']
+        context = {category.lower() + 's': MenuItem.objects.filter(category__name__icontains=category) for category in categories}
         return render(request, 'customer/order.html', context)
 
     def post(self, request, *args, **kwargs):
