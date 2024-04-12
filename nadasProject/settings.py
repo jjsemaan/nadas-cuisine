@@ -36,15 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dbbackup',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'customer',
     'kitchen',
 ]
 
-# Backup locations
-# for manual backups use python manage.py dbbackup
-DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': 'C:/Django BackUps'}
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 # Specify the path to your login template
 SITE_ID = 1

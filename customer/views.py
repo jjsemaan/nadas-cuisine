@@ -6,7 +6,6 @@ from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin  # Use for class-based views
 from django.http import HttpResponse
 
-
 # Registration View
 def register(request):
     if request.method == 'POST':

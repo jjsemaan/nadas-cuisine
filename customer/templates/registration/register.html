@@ -1,11 +1,13 @@
 <!-- customer/templates/customer/register.html -->
-{% extends "customer/base.html" %}  <!-- Or your base template if you have one -->
+{% extends "customer/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <h2>Register</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button type="submit">Register</button>
 </form>
 {% endblock content %}
