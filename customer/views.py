@@ -3,11 +3,11 @@ from django.views import View
 from .models import MenuItem, Category, OrderModel
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin  # Use for class-based views
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
-from .forms import SignUpForm #, UserForm, ProfileForm
+from .forms import SignUpForm 
 
 """
 # Registration View
@@ -24,14 +24,13 @@ def register(request):
 """
 
 # Class-based views for authentication
-class HomeView(TemplateView):
-    template_name = 'customer/index.html'
+# class HomeView(TemplateView):
+#     template_name = 'customer/index.html'
 
 class SignUpView(CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy('index')
     template_name = 'registration/register.html'
-
+    success_url = reverse_lazy('index')
 
 # Class-based views for pages
 class Index(View):

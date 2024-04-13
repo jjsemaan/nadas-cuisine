@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from customer.views import Index, About, Order, Contact
-from customer.views import SignUpView #register HomeView,
+from customer.views import SignUpView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -29,6 +29,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/register/', register, name='register'),
     path('register/', SignUpView.as_view(), name='register'),
+    # path('login/', auth_views.LoginView.as_view(template_name='customer/login.html'), name='login'),
+    # path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='customer/login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
 ]
