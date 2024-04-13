@@ -121,6 +121,10 @@ AUTH_USER_MODEL = 'auth.User'
 # Email verification is disabled in this project.
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+# Send Email from Django
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
