@@ -13,7 +13,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.user.username}'
+         return '%s %s' % (self.user.first_name, self.user.last_name)
 
 
 @receiver(post_save, sender=User)
