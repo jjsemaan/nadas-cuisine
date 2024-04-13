@@ -5,7 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin  # Use for class-based views
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView
+from .forms import SignUpForm #, UserForm, ProfileForm
 
+"""
 # Registration View
 def register(request):
     if request.method == 'POST':
@@ -17,6 +21,17 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+"""
+
+# Class-based views for authentication
+class HomeView(TemplateView):
+    template_name = 'customer/index.html'
+
+class SignUpView(CreateView):
+    form_class = SignUpForm
+    success_url = reverse_lazy('index')
+    template_name = 'registration/register.html'
+
 
 # Class-based views for pages
 class Index(View):
