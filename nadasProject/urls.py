@@ -19,6 +19,6 @@ urlpatterns = [
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='registration/change-password.html', success_url='/'), name='change-password'),
     path('profile-update/', ProfileUpdateView.as_view(), name='profile_update'),
     path('profile/', ProfileView.as_view(), name='profile'),
-    path('menu-delete-item/<int:item_id>/', DeleteMenuItem.as_view(), name='delete_menu_item'),
+    path('menu-delete-item/<int:pk>/', DeleteMenuItem.as_view(), name='delete_menu_item'),
 ]
 

@@ -22,7 +22,10 @@
                                 <p class="font-weight-bold pl-5">{{ app.price }}</p>
                             </div>
                             <p>{{ app.description }}</p>
+                            {% if request.user.is_superuser %}
+                            <!-- Only display the delete link if the user is a superuser -->
                             <a href="{% url 'delete_menu_item' app.item_id %}">Delete Item</a>
+                            {% endif %}
                         </div>
                     </div>
                     <hr />
@@ -44,7 +47,10 @@
                                 <p class="font-weight-bold pl-5">{{ plate.price }}</p>
                             </div>
                             <p>{{ plate.description }}</p>
+                            {% if request.user.is_superuser %}
+                            <!-- Only display the delete link if the user is a superuser -->
                             <a href="{% url 'delete_menu_item' plate.item_id %}">Delete Item</a>
+                            {% endif %}
                         </div>
                     </div>
                     <hr />
@@ -66,7 +72,10 @@
                                 <p class="font-weight-bold pl-5">{{ dessert.price }}</p>
                             </div>
                             <p>{{ dessert.description }}</p>
+                            {% if request.user.is_superuser %}
+                            <!-- Only display the delete link if the user is a superuser -->                           
                             <a href="{% url 'delete_menu_item' dessert.item_id %}">Delete Item</a>
+                            {% endif %}
                         </div>
                     </div>
                     <hr />
@@ -88,7 +97,10 @@
                                 <p class="font-weight-bold pl-5">{{ drink.price }}</p>
                             </div>
                             <p>{{ drink.description }}</p>
+                            {% if request.user.is_superuser %}
+                            <!-- Only display the delete link if the user is a superuser -->                           
                             <a href="{% url 'delete_menu_item' drink.item_id %}">Delete Item</a>
+                            {% endif %}
                         </div>
                     </div>
                     <hr />
