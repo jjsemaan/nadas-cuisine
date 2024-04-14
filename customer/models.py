@@ -14,12 +14,17 @@ class Profile(models.Model):
          return '%s %s' % (self.user.first_name, self.user.last_name)
 
 
-@receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     else:
-        instance.profile.save()
+        try:
+            instance.profile.save()
+        except ObjectDoesNotExist:
+            Profile.objects.create(user=instance)
+            # Optionally log this situation if it's unexpected
+    
+
 
 
 
@@ -52,7 +57,7 @@ class OrderModel(models.Model):
     """
     Represents an order made by a customer, including its items and total price.
     """
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user_id = models.IntegerField()  # Storing user ID directly
     created_on = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     items = models.ManyToManyField(

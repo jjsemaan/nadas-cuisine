@@ -75,8 +75,15 @@ class Order(LoginRequiredMixin, View):  # Ensure only logged-in users can access
             price += item['price']
             item_ids.append(item['id'])
 
-        order = OrderModel.objects.create(price=price)
-        order.items.add(*item_ids)
+        # order = OrderModel.objects.create(price=price)
+        # order.items.add(*item_ids)
+        # Retrieve the user ID from the request user
+        user_id = request.user.id
+
+        # Create the order with the user ID
+        order = OrderModel.objects.create(user_id=user_id, price=price)
+        order.items.add(*item_ids)  # This assumes there's a many-to-many field to items        
+
 
         context = {
             'items': order_items['items'],
