@@ -48,7 +48,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Specify the path to your login template
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'order'
 LOGOUT_REDIRECT_URL = '/'
 
 
