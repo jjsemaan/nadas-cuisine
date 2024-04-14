@@ -43,6 +43,7 @@
                                 <p class="font-weight-bold pl-5">{{ plate.price }}</p>
                             </div>
                             <p>{{ plate.description }}</p>
+                            <a href="{% url 'delete_menu_item' plate.item_id %}">Delete Item</a>
                         </div>
                     </div>
                     <hr />
