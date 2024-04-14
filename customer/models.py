@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.conf import settings
 
 class Profile(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     location = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     
@@ -14,15 +14,12 @@ class Profile(models.Model):
          return '%s %s' % (self.user.first_name, self.user.last_name)
 
 
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-    else:
-        try:
-            instance.profile.save()
-        except ObjectDoesNotExist:
-            Profile.objects.create(user=instance)
-            # Optionally log this situation if it's unexpected
+    instance.profile.save()  # This saves the profile every time the user object is saved.
+
     
 
 
