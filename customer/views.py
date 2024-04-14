@@ -30,7 +30,7 @@ def register(request):
 class SignUpView(CreateView):
     form_class = SignUpForm
     template_name = 'registration/register.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
 
 # Class-based views for pages
 class Index(View):

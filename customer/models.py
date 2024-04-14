@@ -5,12 +5,10 @@ from django.dispatch import receiver
 from django.conf import settings
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     location = models.CharField(max_length=100, blank=True, null=True)
-    email = models.EmailField(max_length=255, blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    first_name = models.CharField(max_length=50, blank=True, null=True)
-    last_name = models.CharField(max_length=50, blank=True, null=True)
+    
 
     def __str__(self):
          return '%s %s' % (self.user.first_name, self.user.last_name)
@@ -54,6 +52,7 @@ class OrderModel(models.Model):
     """
     Represents an order made by a customer, including its items and total price.
     """
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     items = models.ManyToManyField(
