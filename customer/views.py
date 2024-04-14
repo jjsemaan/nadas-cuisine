@@ -9,24 +9,6 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 from .forms import SignUpForm 
 
-"""
-# Registration View
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  # Log in the new user immediately after registration
-            return redirect('index')  # Redirect to the homepage or another appropriate page
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
-"""
-
-# Class-based views for authentication
-# class HomeView(TemplateView):
-#     template_name = 'customer/index.html'
-
 class SignUpView(CreateView):
     form_class = SignUpForm
     template_name = 'registration/register.html'
