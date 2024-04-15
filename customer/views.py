@@ -3,7 +3,7 @@ from django.views import View
 from .models import MenuItem, Category, OrderModel
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin 
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin 
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
@@ -14,15 +14,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from customer.models import Profile
 
-from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import DeleteView
 
-"""
-class SignUpView(CreateView):
-    form_class = SignUpForm
-    template_name = 'registration/register.html'
-    success_url = reverse_lazy('login')
-"""
 class SignUpView(CreateView):
     form_class = SignUpForm
     template_name = 'registration/register.html'
@@ -85,8 +78,6 @@ class Order(LoginRequiredMixin, View):  # Ensure only logged-in users can access
             price += item['price']
             item_ids.append(item['id'])
 
-        # order = OrderModel.objects.create(price=price)
-        # order.items.add(*item_ids)
         # Retrieve the user ID from the request user
         user_id = request.user.id
 
@@ -121,7 +112,7 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.error(request, 'Your profile is updated successfully!')
+            messages.success(request, 'Your profile is updated successfully!')
             return HttpResponseRedirect(reverse_lazy('profile'))
 
         context = self.get_context_data(
