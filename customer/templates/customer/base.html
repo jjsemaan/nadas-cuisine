@@ -23,7 +23,8 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark green">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/">Nada's Kitchen</a>
@@ -64,10 +65,14 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg">
+        <!-- Message Display Section -->
+        {% include 'registration/messages.html' %}
+
         {% block content %}
         <!-- Dynamic content will be displayed here -->
         {% endblock content %}
     </main>
+
 
     <footer class="page-footer font-small green fixed-bottom">
         <div class="text-center py-3">
@@ -80,6 +85,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    
+    <!-- Script display flash message for 5 seconds then disappear-->
+    <script>
+        setTimeout(function () {
+            if ($('#msg').length > 0) {
+                $('#msg').remove();
+            }
+        }, 5000)
+    </script>
+
 </body>
 
 </html>

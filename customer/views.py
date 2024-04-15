@@ -17,11 +17,30 @@ from customer.models import Profile
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import DeleteView
 
-
+"""
 class SignUpView(CreateView):
     form_class = SignUpForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
+"""
+class SignUpView(CreateView):
+    form_class = SignUpForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        response = super().form_valid(form)
+        messages.success(self.request, 'Your account has been created successfully! You can now log in.')
+        return response
+
+    def form_invalid(self, form):
+        # This method is called if the form is invalid.
+        # It should return an HttpResponse.
+        response = super().form_invalid(form)
+        messages.error(self.request, 'Registration failed. Please correct the errors below.')
+        return response
 
 # Class-based views for pages
 class Index(View):
