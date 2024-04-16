@@ -150,7 +150,7 @@ from django.urls import reverse_lazy
 
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
-    redirect_authenticated_user = True  # Optional: Redirect users who are already logged in
+    redirect_authenticated_user = False
     
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed and the user is authenticated.
