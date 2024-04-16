@@ -44,10 +44,6 @@ class About(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/about.html')
 
-class Contact(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'customer/contact.html')
-
 
 class Order(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
@@ -140,5 +136,3 @@ class DeleteMenuItem(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_superuser
-
-

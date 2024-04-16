@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from customer.views import Index, About, Order, Contact
+from customer.views import Index, About, Order
 from customer.views import SignUpView
 from django.contrib.auth import views as auth_views
 from customer.views import ProfileUpdateView, ProfileView, DeleteMenuItem
@@ -10,7 +10,6 @@ urlpatterns = [
     path('', Index.as_view(), name='index'),
     path('about/', About.as_view(), name='about'),
     path('order/', Order.as_view(), name='order'),
-    path('contact/', Contact.as_view(), name='contact'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', SignUpView.as_view(), name='register'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='customer/login.html'), name='login'),
