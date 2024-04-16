@@ -46,6 +46,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+# Make sure datetime is imported
+import datetime
+
 class OrderModel(models.Model):
     """
     Represents an order made by a customer, including its items and total price.
@@ -53,9 +56,8 @@ class OrderModel(models.Model):
     user_id = models.IntegerField()  # Storing user ID directly
     created_on = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    items = models.ManyToManyField(
-        'MenuItem', related_name='order', blank=True)
+    items = models.ManyToManyField('MenuItem', related_name='order', blank=True)
+    delivery_date = models.DateField(default=datetime.date.today)  # Using datetime to set the default value
 
-    # Returns a string representation of the order, showing the creation date and time.
     def __str__(self):
-        return f'Order: {self.created_on.strftime("%b %d %I: %M %p")}'
+        return f'Order: {self.created_on.strftime("%b %d %I:%M %p")}'

@@ -45,6 +45,11 @@ class About(View):
         return render(request, 'customer/about.html')
 
 
+from django.shortcuts import render
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import MenuItem, OrderModel  # Adjust the import path based on your project structure
+
 class Order(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         categories = ['Appetiser', 'Plate', 'Dessert', 'Drink']
@@ -52,17 +57,14 @@ class Order(LoginRequiredMixin, View):
             category.lower() + 's': MenuItem.objects.filter(category__name__icontains=category)
             for category in categories
         }
-
-        # Retrieve location and phone_number from the user's associated profile
         context['location'] = request.user.profile.location
         context['phone_number'] = request.user.profile.phone_number
-
         return render(request, 'customer/order.html', context)
 
     def post(self, request, *args, **kwargs):
         order_items = {'items': []}
         items = request.POST.getlist('items[]')
-
+        
         for item in items:
             menu_item = MenuItem.objects.get(pk=int(item))
             item_data = {
@@ -79,13 +81,14 @@ class Order(LoginRequiredMixin, View):
             price += item['price']
             item_ids.append(item['id'])
 
-        # Retrieve the user ID from the request user
+        # Retrieve the user ID and delivery_date from the request
         user_id = request.user.id
-        # Create the order with the user ID and the calculated price
-        order = OrderModel.objects.create(user_id=user_id, price=price)
-        order.items.add(*item_ids)  # This assumes there's a many-to-many field to items
+        delivery_date = request.POST.get('delivery_date')  # Retrieve the delivery date from the POST data
 
-        # Include user's location and phone_number in the context from the profile
+        # Create the order with the user ID, calculated price, and delivery date
+        order = OrderModel.objects.create(user_id=user_id, price=price, delivery_date=delivery_date)
+        order.items.add(*item_ids)  # Adding menu items to the many-to-many field
+
         context = {
             'items': order_items['items'],
             'price': price,
@@ -94,6 +97,7 @@ class Order(LoginRequiredMixin, View):
         }
 
         return render(request, 'customer/orderconfirm.html', context)
+
 
 
 # View profile and update it

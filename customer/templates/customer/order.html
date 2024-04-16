@@ -8,11 +8,11 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="pt-5">
-                    <h2 class="mb-4">Appetisers</h2> 
+                    <h2 class="mb-4">Appetisers</h2>
                     {% for app in appetisers %}
                     <div class="row">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ app.image_url }}" width="150" height="150"/>
+                            <img class="rounded" src="{{ app.image_url }}" width="150" height="150" />
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <hr />
-                {% endfor %}
+                    {% endfor %}
                 </div>
 
                 <div class="pt-5">
@@ -38,12 +38,13 @@
                     {% for plate in plates %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ plate.image_url }}" width="150" height="150"/>
+                            <img class="rounded" src="{{ plate.image_url }}" width="150" height="150" />
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ plate.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input"
+                                        value="{{ plate.pk }}">
                                     <label class="form-check-label">{{ plate.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">{{ plate.price }}</p>
@@ -64,19 +65,20 @@
                     {% for dessert in desserts %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ dessert.image_url }}" width="150" height="150"/>
+                            <img class="rounded" src="{{ dessert.image_url }}" width="150" height="150" />
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input"
+                                        value="{{ dessert.pk }}">
                                     <label class="form-check-label">{{ dessert.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">{{ dessert.price }}</p>
                             </div>
                             <p>{{ dessert.description }}</p>
                             {% if request.user.is_superuser %}
-                            <!-- Only display the delete link if the user is a superuser -->                           
+                            <!-- Only display the delete link if the user is a superuser -->
                             <a href="{% url 'delete_menu_item' dessert.item_id %}">Delete Item</a>
                             {% endif %}
                         </div>
@@ -90,19 +92,20 @@
                     {% for drink in drinks %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ drink.image_url }}" width="150" height="150"/>
+                            <img class="rounded" src="{{ drink.image_url }}" width="150" height="150" />
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input"
+                                        value="{{ drink.pk }}">
                                     <label class="form-check-label">{{ drink.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">{{ drink.price }}</p>
                             </div>
                             <p>{{ drink.description }}</p>
                             {% if request.user.is_superuser %}
-                            <!-- Only display the delete link if the user is a superuser -->                           
+                            <!-- Only display the delete link if the user is a superuser -->
                             <a href="{% url 'delete_menu_item' drink.item_id %}">Delete Item</a>
                             {% endif %}
                         </div>
@@ -110,11 +113,24 @@
                     <hr />
                     {% endfor %}
                 </div>
-                <div>
-                    <button class="btn btn-dark mt-5 place-order-btn">Place Order!</button>
+                <div class="form-group row justify-content-center">
+                    <label for="delivery_date" class="col-form-label col-md-4 text-center">Choose a delivery
+                        date:</label>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <div class="col-md-4">
+                        <input type="date" id="delivery_date" name="delivery_date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <div class="col-md-4 mb-4">
+                        <button class="btn btn-dark btn-block mt-3 place-order-btn">Place Order!</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script src="{% static 'js/date-restrict.js' %}"></script>
+
 {% endblock content %}
