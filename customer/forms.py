@@ -49,3 +49,9 @@ class ProfileForm(forms.ModelForm):
             'phone_number',
             'location',
         ]
+
+        labels = {
+            "location": "Address"
+        }
+                    
+               
