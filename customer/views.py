@@ -48,31 +48,37 @@ class Contact(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/contact.html')
 
-class Order(LoginRequiredMixin, View):  # Ensure only logged-in users can access this view
+
+
+class Order(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         categories = ['Appetiser', 'Plate', 'Dessert', 'Drink']
-        context = {category.lower() + 's': MenuItem.objects.filter(category__name__icontains=category) for category in categories}
+        context = {
+            category.lower() + 's': MenuItem.objects.filter(category__name__icontains=category)
+            for category in categories
+        }
+
+        # Retrieve location and phone_number from the user's associated profile
+        context['location'] = request.user.profile.location
+        context['phone_number'] = request.user.profile.phone_number
+
         return render(request, 'customer/order.html', context)
 
     def post(self, request, *args, **kwargs):
-        order_items = {
-            'items': []
-        }
-
+        order_items = {'items': []}
         items = request.POST.getlist('items[]')
 
         for item in items:
-            menu_item = MenuItem.objects.get(pk__contains=int(item))
+            menu_item = MenuItem.objects.get(pk=int(item))
             item_data = {
                 'id': menu_item.pk,
                 'name': menu_item.name,
                 'price': menu_item.price
             }
-
             order_items['items'].append(item_data)
 
-            price = 0
-            item_ids = []
+        price = 0
+        item_ids = []
 
         for item in order_items['items']:
             price += item['price']
@@ -80,18 +86,20 @@ class Order(LoginRequiredMixin, View):  # Ensure only logged-in users can access
 
         # Retrieve the user ID from the request user
         user_id = request.user.id
-
-        # Create the order with the user ID
+        # Create the order with the user ID and the calculated price
         order = OrderModel.objects.create(user_id=user_id, price=price)
-
         order.items.add(*item_ids)  # This assumes there's a many-to-many field to items
 
+        # Include user's location and phone_number in the context from the profile
         context = {
             'items': order_items['items'],
-            'price': price
+            'price': price,
+            'location': request.user.profile.location,
+            'phone_number': request.user.profile.phone_number
         }
 
         return render(request, 'customer/orderconfirm.html', context)
+
 
 # View profile and update it
 class ProfileView(LoginRequiredMixin, TemplateView):
@@ -133,3 +141,5 @@ class DeleteMenuItem(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+

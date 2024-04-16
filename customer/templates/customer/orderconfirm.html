@@ -32,7 +32,7 @@
                             <div class="row justify-content-center mt-5">
                                 <div class="col-md-8 col-sm-12 text-left">
                                     <h3>Order Submitted!</h3>
-                                    <p>You should receive a confirmation email soon.</p>
+                                    <p>We will give you a confirmation call in a few minutes.</p>
                                     <p><strong>Order Summary:</strong></p>
                                     <table class="table">
                                         <thead>
@@ -48,10 +48,19 @@
                                                 <td>{{ item.price }}</td>
                                             </tr>
                                             {% endfor %}
+                                            <tr>
+                                                <td class="font-weight-bold pt-4"> Total: </td>
+                                                <td class="font-weight-bold pt-4">{{ price }}</td>
+                                            </tr>
+                                            <hr>
                                         </tbody>
                                     </table>
-                                    <p class="font-weight-bold pt-4">Total: {{ price }}</p>
-                                    <p class="font-weight-bold">Customer email: {{ user.email }}</p>
+                                    
+                                    <h2 class="mb-4">Shipping Details</h2>
+                                    <p><strong>Customer:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                                    <p><strong>Customer email:</strong> {{ user.email }}</p>
+                                    <p><strong>Deliver To:</strong> {{ location }}</p>
+                                    <p><strong>Phone Number:</strong> {{ phone_number }}</p>
                                 </div>
                             </div>
                         </div>

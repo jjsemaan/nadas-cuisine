@@ -5,7 +5,6 @@ from customer.views import SignUpView
 from django.contrib.auth import views as auth_views
 from customer.views import ProfileUpdateView, ProfileView, DeleteMenuItem
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name='index'),
