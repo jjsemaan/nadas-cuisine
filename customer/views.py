@@ -49,7 +49,6 @@ class Contact(View):
         return render(request, 'customer/contact.html')
 
 
-
 class Order(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         categories = ['Appetiser', 'Plate', 'Dessert', 'Drink']
