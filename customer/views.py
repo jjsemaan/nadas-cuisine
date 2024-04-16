@@ -59,6 +59,7 @@ class Order(LoginRequiredMixin, View):
         }
         context['location'] = request.user.profile.location
         context['phone_number'] = request.user.profile.phone_number
+        
         return render(request, 'customer/order.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -81,22 +82,22 @@ class Order(LoginRequiredMixin, View):
             price += item['price']
             item_ids.append(item['id'])
 
-        # Retrieve the user ID and delivery_date from the request
         user_id = request.user.id
-        delivery_date = request.POST.get('delivery_date')  # Retrieve the delivery date from the POST data
+        delivery_date = request.POST.get('delivery_date')
 
-        # Create the order with the user ID, calculated price, and delivery date
         order = OrderModel.objects.create(user_id=user_id, price=price, delivery_date=delivery_date)
-        order.items.add(*item_ids)  # Adding menu items to the many-to-many field
+        order.items.add(*item_ids)
 
         context = {
             'items': order_items['items'],
             'price': price,
+            'delivery_date': delivery_date,  # Include delivery_date in the context
             'location': request.user.profile.location,
             'phone_number': request.user.profile.phone_number
         }
 
         return render(request, 'customer/orderconfirm.html', context)
+
 
 
 
