@@ -141,3 +141,25 @@ class DeleteMenuItem(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+
+# login messaging
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.urls import reverse_lazy
+
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    redirect_authenticated_user = True  # Optional: Redirect users who are already logged in
+    
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed and the user is authenticated.
+        response = super().form_valid(form)
+        messages.success(self.request, 'Login Successful! Welcome back.')
+        return response
+
+    def form_invalid(self, form):
+        # This method is called if the form is invalid.
+        response = super().form_invalid(form)
+        messages.error(self.request, 'Login failed. Please check your username and password and try again.')
+        return response
