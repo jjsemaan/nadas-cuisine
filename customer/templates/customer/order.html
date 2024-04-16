@@ -5,7 +5,7 @@
 <div class="container mb-5">
     <div class="row justify-content-center mt-1">
         <div class="col-md-12 col-sm-12 p-4">
-            <form method="POST">
+            <form method="POST" id="orderForm">
                 {% csrf_token %}
                 <div class="pt-5">
                     <h2 class="mb-4">Appetisers</h2>
@@ -131,6 +131,7 @@
         </div>
     </div>
 </div>
+<script src="{% static 'js/selection-validation.js' %}"></script>
 <script src="{% static 'js/date-restrict.js' %}"></script>
 
 {% endblock content %}
