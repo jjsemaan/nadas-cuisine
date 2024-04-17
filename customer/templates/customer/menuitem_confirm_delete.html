@@ -1,12 +1,12 @@
-{% extends 'customer/base.html' %} 
-{% load crispy_forms_tags %} 
+{% extends 'customer/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
     <h1 class="text-center mt-5">Confirm Menu Item Deletion</h1>
     <div class="d-flex justify-content-center pt-3">
         <form method="POST" class="text-center">
-            {% csrf_token %} 
+            {% csrf_token %}
             <p>Are you sure you want to delete "{{object.name}}"?</p>
             <button type="submit" class="btn btn-success btn-block">Delete</button>
         </form>
