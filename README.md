@@ -4,3 +4,8 @@ Nada's Kitchen is a fictional catering business located Dublin, Ireland. The app
 The live link can be found here: [Live Site - Nada's Kitchen](https://nadas-cuisine-ca42fb816afa.herokuapp.com/)
 
 ![Mock Up](static/img/am-i-responsive.JPG)
+
+## Table of Contents
+- [Sizzle and Steak](#nada's-kitchen)
+    - [Table of Contents](#table-of-contents)
+- [User-Experience-Design](#user-experience-design)
