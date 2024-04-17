@@ -16,7 +16,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com','.herokuapp.com'
+    '8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com',
+    '.herokuapp.com'
 ]
 
 # APPLICATION DEFINITION
@@ -62,8 +63,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),  # Include project-level templates directory
-            os.path.join(BASE_DIR, 'nadasProject', 'templates'),  # Include app-level templates director
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'nadasProject', 'templates'),
             ],
         'APP_DIRS': True,
         'OPTIONS': {
