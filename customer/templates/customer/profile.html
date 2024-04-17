@@ -9,12 +9,12 @@
   <!-- Main Content Here -->
   <div class="row justify-content-center">
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
-      <div class="card-body text-center"> <!-- Added text-center to center all content within the card-body -->
-        <h2>{{user.first_name}} {{user.last_name}}</h2>
-        <p class="font-weight-bold">User Name: {{user.username}}</p>
-        <p class="font-weight-bold">Email: {{user.email}}</p>
-        <p class="font-weight-bold">Phone Number: {{user.profile.phone_number}}</p>
-        <p class="font-weight-bold">Last Login: {{user.last_login}}</p>
+      <div class="card-body text-center">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p><span class="font-weight-bold">User Name:</span> {{ user.username }}</p>
+        <p><span class="font-weight-bold">Email:</span> {{ user.email }}</p>
+        <p><span class="font-weight-bold">Phone Number:</span> {{ user.profile.phone_number }}</p>
+        <p><span class="font-weight-bold">Last Login:</span> {{ user.last_login }}</p>
         <a href="{% url 'profile_update' %}" class="btn btn-sm btn-dark shadow-sm">Update Profile</a>
       </div>
     </div>
