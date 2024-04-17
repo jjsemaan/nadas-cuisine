@@ -43,11 +43,14 @@
                                     </table>
 
                                     <h2 class="mb-4">Shipping Details</h2>
-                                    <p class="font-weight-bold">Customer: {{ user.first_name }} {{ user.last_name }}</p>
-                                    <p class="font-weight-bold">Customer email: {{ user.email }}</p>
-                                    <p class="font-weight-bold">Deliver To: {{ location }}</p>
-                                    <p class="font-weight-bold">Phone Number: {{ phone_number }}</p>
-                                    <p class="font-weight-bold">Delivery Date: on {{ delivery_date }} - before 13:00</p>
+                                    <p><span class="font-weight-bold">Customer:</span> {{ user.first_name }} {{
+                                        user.last_name }}</p>
+                                    <p><span class="font-weight-bold">Customer email:</span> {{ user.email }}</p>
+                                    <p><span class="font-weight-bold">Deliver To:</span> {{ location }}</p>
+                                    <p><span class="font-weight-bold">Phone Number:</span> {{ phone_number }}</p>
+                                    <p><span class="font-weight-bold">Delivery Date:</span> on {{ delivery_date }} -
+                                        before 13:00</p>
+
                                 </div>
                             </div>
                         </div>
