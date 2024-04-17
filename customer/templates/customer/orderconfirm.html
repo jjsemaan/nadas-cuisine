@@ -4,21 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Nadas Cuisine - Order Confirmation</title>
-    <!-- Custom fonts for this template-->
-    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-</head>
+
 <body class="bg-gradient-primary" style="background-color: #f8f9fc; background-image: none;">
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -28,17 +14,17 @@
                     <div class="col-lg-2 d-none d-lg-block"></div>
                     <div class="col-lg-8">
                         <div class="container mb-4">
-                            
+
                             <div class="row justify-content-center mt-5">
                                 <div class="col-md-8 col-sm-12 text-left">
                                     <h3>Order Submitted!</h3>
                                     <p>We will give you a confirmation call in a few minutes.</p>
-                                    <p><strong>Order Summary:</strong></p>
+                                    <p class="font-weight-bold">Order Summary:</p>
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Item</th>
-                                                <th>Price</th>
+                                                <th class="font-weight-bold">Item</th>
+                                                <th class="font-weight-bold">Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,13 +41,13 @@
                                             <hr>
                                         </tbody>
                                     </table>
-                                    
+
                                     <h2 class="mb-4">Shipping Details</h2>
-                                    <p><strong>Customer:</strong> {{ user.first_name }} {{ user.last_name }}</p>
-                                    <p><strong>Customer email:</strong> {{ user.email }}</p>
-                                    <p><strong>Deliver To:</strong> {{ location }}</p>
-                                    <p><strong>Phone Number:</strong> {{ phone_number }}</p>
-                                    <p><strong>Delivery Date:</strong> on {{ delivery_date }} - before 13:00</p>
+                                    <p class="font-weight-bold">Customer: {{ user.first_name }} {{ user.last_name }}</p>
+                                    <p class="font-weight-bold">Customer email: {{ user.email }}</p>
+                                    <p class="font-weight-bold">Deliver To: {{ location }}</p>
+                                    <p class="font-weight-bold">Phone Number: {{ phone_number }}</p>
+                                    <p class="font-weight-bold">Delivery Date: on {{ delivery_date }} - before 13:00</p>
                                 </div>
                             </div>
                         </div>
@@ -75,4 +61,5 @@
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+</body>
 {% endblock content %}

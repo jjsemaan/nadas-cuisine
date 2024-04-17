@@ -11,16 +11,13 @@
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
       <div class="card-body text-center"> <!-- Added text-center to center all content within the card-body -->
         <h2>{{user.first_name}} {{user.last_name}}</h2>
-        <p><strong>User Name: </strong> {{user.username}}</p>
-        <p><strong>Email: </strong> {{user.email}}</p>
-        <p><strong>Phone Number: </strong> {{user.profile.phone_number}}</p>
-        <p><strong>Last Login: </strong> {{user.last_login}}</p>
+        <p class="font-weight-bold">User Name: {{user.username}}</p>
+        <p class="font-weight-bold">Email: {{user.email}}</p>
+        <p class="font-weight-bold">Phone Number: {{user.profile.phone_number}}</p>
+        <p class="font-weight-bold">Last Login: {{user.last_login}}</p>
         <a href="{% url 'profile_update' %}" class="btn btn-sm btn-dark shadow-sm">Update Profile</a>
       </div>
     </div>
   </div>
-
-
 </div>
-<!-- /.container-fluid -->
 {% endblock content %}
