@@ -12,7 +12,8 @@
                     {% for app in appetisers %}
                     <div class="row">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ app.image_url }}" alt="Picture of {{app.name}}" width="150" height="150">
+                            <img class="rounded" src="{{ app.image_url }}" alt="Picture of {{app.name}}" width="150"
+                                height="150">
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
@@ -38,7 +39,8 @@
                     {% for plate in plates %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ plate.image_url }}" alt="Picture of {{plate.name}}" width="150" height="150">
+                            <img class="rounded" src="{{ plate.image_url }}" alt="Picture of {{plate.name}}" width="150"
+                                height="150">
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
@@ -65,7 +67,8 @@
                     {% for dessert in desserts %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ dessert.image_url }}" alt="Picture of {{dessert.name}}" width="150" height="150">
+                            <img class="rounded" src="{{ dessert.image_url }}" alt="Picture of {{dessert.name}}"
+                                width="150" height="150">
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
@@ -92,7 +95,8 @@
                     {% for drink in drinks %}
                     <div class="row mt-4">
                         <div class="col-md-2 col-sm-12">
-                            <img class="rounded" src="{{ drink.image_url }}" alt="Picture of {{drink.name}}" width="150" height="150">
+                            <img class="rounded" src="{{ drink.image_url }}" alt="Picture of {{drink.name}}" width="150"
+                                height="150">
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
@@ -114,8 +118,9 @@
                     {% endfor %}
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label for="delivery_date" class="col-form-label col-md-4 text-center">Choose a delivery
-                        date:</label>
+                    <label for="delivery_date" class="col-form-label col-md-4 text-center">Please select a delivery date
+                        <br><span class="font-weight-bold">at least 48 hours in advance</span>:
+                    </label>
                 </div>
                 <div class="form-group row justify-content-center">
                     <div class="col-md-4">
