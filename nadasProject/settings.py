@@ -1,23 +1,26 @@
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
-
 import dj_database_url
+
+# Check for local configurations that are not meant to be in version control
 if os.path.isfile('env.py'):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY SETTINGS
+# ------------------------------------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY")
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com','.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com','.herokuapp.com'
+]
 
-# Application definition
-
+# APPLICATION DEFINITION
+# ------------------------------------------------------------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -28,17 +31,19 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'customer',
+    'black'
 ]
 
+# CRISPY FORMS CONFIGURATION
+# ------------------------------------------------------------------------------
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-# Specify the path to your login template
+# AUTHENTICATION AND AUTHORIZATION
+# ------------------------------------------------------------------------------
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'order'
 LOGOUT_REDIRECT_URL = '/'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,20 +79,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nadasProject.wsgi.application'
 
-
-# Database
+# DATABASE CONFIGURATION
+# ------------------------------------------------------------------------------
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+# CSRF TRUSTED ORIGINS
+# ------------------------------------------------------------------------------
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com"
 ]
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
+# PASSWORD VALIDATION
+# -----------------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -103,34 +109,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Extend User Profile.
 AUTH_USER_MODEL = 'auth.User'
 
-# Email verification is disabled in this project.
+
+# EMAIL SETTINGS
+# ------------------------------------------------------------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-# Send Email from Django
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
+# INTERNATIONALIZATION
+# ------------------------------------------------------------------------------
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
-
-# Base directory of your project
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# URL to use when referring to static files (e.g., in a browser)
+# STATIC FILES (CSS, JavaScript, Images)
+# ------------------------------------------------------------------------------
 STATIC_URL = '/static/'
 
 if 'DEVELOPMENT' in os.environ:
@@ -138,12 +135,12 @@ if 'DEVELOPMENT' in os.environ:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
+# DEFAULT PRIMARY KEY FIELD TYPE
+# ------------------------------------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django message tags
+# DJANGO MESSAGES TAGS CONFIGURATION
+# ------------------------------------------------------------------------------
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
