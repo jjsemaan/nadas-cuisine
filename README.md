@@ -12,6 +12,8 @@ The live link can be found here: [Live Site - Nada's Kitchen](https://nadas-cuis
     - [The-Strategy-Plane](#the-strategy-plane)
     - [Site-Goals](#site-goals)
     - [Agile Planning](#agile-planning)
+        - [Milestones](#milestones)
+        - [Issues](#issues)
 
 
 # User-Experience-Design
@@ -34,3 +36,27 @@ The project enabled issues, prioritized under the labels, Must have, should have
 The Kanban board was created using github projects and can be located [here](https://github.com/users/jjsemaan/projects/4) and can be viewed to see more information on the project cards. All issues have a full set of acceptance criteria in order to define the functionality that marks that issue as complete.
 
 ![Kanban image]()
+
+#### Milestones
+
+The project had 7 main Epics (milestones):
+
+**Milestone 1 - Base Setup**
+
+The base setup milestone is for all issues needed for the base set up of the application. Without the base setup, the app would not be possible so it was the first milestone to be delivered as all other features depend on the completion of the base setup.
+
+**Milestone 2 - Menu Page**
+
+The menu pages milestone was used for the food menu page and for other small pages. Instead of creating milestones for tiny features, these small deliverables were all added here.
+
+**Milestone 3 - Authentication**
+
+The authentication milestone is for all issues related to the registration, login and authorisation of views. This milestone provides critical functionality and value as without it the customer would not be able to make orders securely.
+
+**Milestone 4 - Order**
+
+The order milestone is used for the development of user models that enable CRUD functionality in the site.
+
+**Milestone 5 - Admin Functionaly**
+
+The admin functionality milestone is used for the development of models that enable admins' backend CRUD and front end delete only should they need to quickly remove an item from the food menu.
