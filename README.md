@@ -17,6 +17,24 @@ The live link can be found here: [Live Site - Nada's Kitchen](https://nadas-cuis
     - [The-Scope-Plane](#the-scope-plane)
     - [The-Structure-Plane](#the-structure-plane)
     - [Features](#features)
+    - [Features Left To Implement](#features-left-to-implement)
+  - [The-Skeleton-Plane](#the-skeleton-plane)
+    - [Wireframes](#wireframes)
+    - [Database-Design](#database-design)
+    - [Security](#security)
+  - [The-Surface-Plane](#the-surface-plane)
+    - [Design](#design)
+    - [Colour-Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+  - [Technolgies](#technolgies)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Version Control](#version-control)
+    - [Heroku Deployment](#heroku-deployment)
+    - [Run Locally](#run-locally)
+    - [Fork Project](#fork-project)
+  - [Credits](#credits)
 
 
 # User-Experience-Design
@@ -215,9 +233,145 @@ A 500 error page has been displayed to alert users when an internal server error
 
 ### Wireframes
 
-- Home page
+- The wireframe was created on proto.io which provides an interactive mockup of the site and page [Wireframe](https://share.proto.io/UHQVVA/).
 
 
-![Home Page]()
+### Database-Design
+
+The database was designed to allow CRUD functionality to be available to registered users, when signed in. The user model is at the heart of the application as it is connected the the main ordering tables, linked by primary/foreign key relationships.
+
+Orders are related to the customer (user) by a Foreign Key,
+
+Entity relationship diagram was created using [Navicat](https://www.navicat.com/) and shows the schemas for each of the models and how they are related.
+
+![Entity Relationship Diagram](static/img/erd.JPG)
+
+### Security
+
+Views were secured by using the django class based view mixin, UserPassesTextMixin. Manual testing was implemented to ensure that the user who is trying to access the page is authorized. 
+
+Environment variables were stored in an env.py for local development for security purposes to ensure no secret keys, api keys or sensitive information was added the the repository. In production, these variables were added to the heroku config vars within the project.
+
+## The-Surface-Plane
+### Design
+
+### Colour-Scheme
+
+The main color schemes for the website are black (Bootstrap4 navbar-dark green ) navs.
+
+### Typography
+
+The Roboto font was used throughout the website. This font is from google fonts and was imported into the style sheet.
+
+### Imagery
+
+All images on the website were generated using Adobe Firefly AI.
+
+
+## Technolgies
+
+- HTML
+  - The structure of the Website was developed using HTML as the main language.
+- CSS
+  - The Website was styled using custom CSS in an external file.
+- JavaScript
+  - JavaScript was used to make the custom slider on the menu page change and the bootstrap date picker.
+- Python
+  - Python was the main programming language used for the application using the Django Framework.
+- Codeanywhere
+  - The website was developed using Codeanywhere IDE
+- GitHub
+  - Source code is hosted on GitHub
+- Git
+  - Used to commit and push code during the development of the Website
+- Font Awesome
+  - This was used for various icons throughout the site
+
+**Python Modules Used**
+
+* Django Class based views (SignUpView, Order, ProfileView, ProfileUpdateView, DeleteMenuItem, CustomLoginView) - Used for the classes to create, read, update and delete
+* Mixins (LoginRequiredMixin, UserPassesTestMixin) - Used to enforce login required on views and test user is authorised to perform actions
+* messages - Used to pass messages to the toasts to display feedback to the user upon actions
+
+**External Python Modules**
+
+* asgiref==3.8.1
+* crispy-bootstrap4==2024.1
+* dj-database-url==0.5.0
+* Django==4.2.11
+* django-crispy-forms==2.1
+* gunicorn==20.1.0
+* psycopg2==2.9.9
+* pytz==2024.1
+* sqlparse==0.4.4
+* whitenoise==6.5.0
+* black==24.4.0
+
+## Testing
+
+All tested manually.
+
+## Deployment
+
+### Version Control
+
+The site was created using the Codeanywhere editor and pushed to github to the remote repository ‘JJSemaan’.
+
+The following git commands were used throughout development to push code to the remote repo:
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+### Heroku Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Click the resources tab and search for Heroku Postgres
+- Select hobby dev and continue
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (This should already exist with add on of postgres)
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repositoy you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
+
+The app should now be deployed.
+
+The live link can be found here: [Live Site](https://nadas-cuisine-ca42fb816afa.herokuapp.com/)
+
+### Run Locally
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+### Fork Project
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+## Credits 
+
+Adobe Firefly AI Image Generator
 
 
