@@ -57,10 +57,39 @@ The authentication milestone is for all issues related to the registration, logi
 
 The order milestone is used for the development of user models that enable CRUD functionality in the site.
 
-**Milestone 5 - Admin Functionaly**
-
-The admin functionality milestone is used for the development of models that enable admins' backend CRUD and front end delete only should they need to quickly remove an item from the food menu.
-
-**Milestone 6 - Flash Messages**
+**Milestone 5 - Flash Messages**
 
 The flash messages milestone is used in the development of views that enable notifications by either levereging Django built-in messaging or via JavaScript.
+
+**Milestone 6 - Documentation**
+
+The flash messages milestone is used in the development of views that enable notifications by either levereging Django built-in messaging or via JavaScript.
+
+#### Issues
+
+The following issues (by sprint) were completed over a period of four weeks:
+
+**Sprint 1**
+
+As a developer, I need to set up the project and run Django in the browser so that the project is ready for implementation.
+As a developer, I need to setup and deploy my project on Heroku to make sure that it is progressing as expected.
+As a developer, I need to create a database to enable CRUD functionality.
+As a developer, I need to create the base.html to to be reused by other pages.
+
+**Sprint 2**
+
+As a developer, I need to create a user intuitive homepage to facilitate UX.
+As a developer, I need to create an About page to inform the users about the site.
+As a developer, I need to create a food menu page for the customer's UX.
+As a developer, I need to create a food menu for the customer to enable connection to ordering food.
+As a developer, I need to create user registration in order to authenticate customers.
+As a developer, I could give the user the ability to change their password when logged in.
+As a developer, I need to extend the user profile to include **user delivery address and phone number" by adding CRUD functionality so that the customer is capable of updating their profile if need be.
+As a developer, I need to style my authentication forms so that they are more intuitive and neat.
+As a developer, I need to create an order confirmation page so that the customer can review their order prior to payment.
+
+**Sprint 3**
+
+As a developer I need to add flash messages on my website to acknowledge button actions.
+As a developer I need to add a date picker so that the customer can select their preferred delivery date.
+As a developer I need to create a README file to provide guided lines to app users.
