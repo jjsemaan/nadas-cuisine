@@ -160,11 +160,64 @@ A footer has been added to the bottom of the site with copyright credits.
 
 A Login page restricts access to the food and ordering menu.
 
-![Loging Page](static/img/login-page.JPG)
+![Login Page](static/img/login-page.JPG)
 
-**Food Menu Ordering Page**
+**About Page**
 
-A food menu page ordering page was implemented to allow customers to make orders and request particular delivery dates from the UI. The Delete anchor beside each item is accessible only to admins. 
+About page highlights the chef's specialty and considerations when ordering. Imprtant info in this page are popping out in bold.
+
+![Login Page](static/img/about-us.JPG)
+
+**Food Menu Ordering, Order Summary and Delete food item Pages**
+
+A food menu page ordering page was implemented to allow customers to make orders and request particular delivery dates from the UI. The Delete anchor beside each item is accessible only to admins leading to a delete item confirmation page.
+Once an order is made, customer is redirected to an Order Summary page acting as an e-receipt. 
 
 ![Food Menu 1 of 2](static/img/food-menu.JPG)
 ![Food Menu 2 of 2](static/img/place-order.JPG)
+
+![Order Summary](static/img/order-summary.JPG)
+
+![Delete Item](static/img/delete-item.JPG)
+
+**User Profile, Update Profile and Change Password Pages**
+
+A user profile and update profile pages were added to enable the addition of user delivery details and to provide a means to update these details should a customer change their phone number or address. 
+A change password page was also added.
+
+![Profile Page](static/img/profile-page.JPG)
+
+![Update Profile Page](static/img/update-profile.JPG)
+
+![Change Password](static/img/change-password.JPG)
+
+**Error Pages**
+Error pages added to enable error handling.
+
+**404 Page**
+
+The 404 page will allow the user to easily navigate back to the main website if they direct to a broken link / missing page, without the need  of the browsers back button.
+
+**403 Page**
+
+A 403 error page has been implemented to provide feedback to the user when they try to access unauthorized content. Users will be directed to this page if they alter the URL's and attempt to edit, delete or access pages that are restricted. 
+
+**500 Page**
+
+A 500 error page has been displayed to alert users when an internal server error occurs. The message relays to users that the problem is on our end, not theirs.
+
+### Features Left To Implement
+- In a future release I would like to implement a quantity selector for each item in the food menu. 
+- I would also like to add admin UI CRUD functionality to the menu items.
+- User email authentication would also make a significant addition.
+
+## The-Skeleton-Plane
+
+### Wireframes
+
+- Home page
+
+
+![Home Page]()
+
+
