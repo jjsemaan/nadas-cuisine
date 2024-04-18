@@ -39,7 +39,7 @@ The Kanban board was created using github projects and can be located [here](htt
 
 #### Milestones
 
-The project had 7 main Epics (milestones):
+The project had 6 main milestones:
 
 **Milestone 1 - Base Setup**
 
@@ -60,3 +60,7 @@ The order milestone is used for the development of user models that enable CRUD 
 **Milestone 5 - Admin Functionaly**
 
 The admin functionality milestone is used for the development of models that enable admins' backend CRUD and front end delete only should they need to quickly remove an item from the food menu.
+
+**Milestone 6 - Flash Messages**
+
+The flash messages milestone is used in the development of views that enable notifications by either levereging Django built-in messaging or via JavaScript.
