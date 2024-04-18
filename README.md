@@ -174,17 +174,20 @@ A footer has been added to the bottom of the site with copyright credits.
 
 ![Home Image](static/img/home-page.JPG)
 
+
 **Login Page**
 
 A Login page restricts access to the food and ordering menu.
 
 ![Login Page](static/img/login-page.JPG)
 
+
 **About Page**
 
 About page highlights the chef's specialty and considerations when ordering. Imprtant info in this page are popping out in bold.
 
 ![Login Page](static/img/about-us.JPG)
+
 
 **Food Menu Ordering, Order Summary and Delete food item Pages**
 
@@ -248,7 +251,7 @@ Entity relationship diagram was created using [Navicat](https://www.navicat.com/
 
 ### Security
 
-Views were secured by using the django class based view mixin, UserPassesTextMixin. Manual testing was implemented to ensure that the user who is trying to access the page is authorized. 
+Views were secured by using the django class based view mixin, UserPassesTextMixin. Manual testing was implemented to ensure that the user who is trying to access the page is authorised. 
 
 Environment variables were stored in an env.py for local development for security purposes to ensure no secret keys, api keys or sensitive information was added the the repository. In production, these variables were added to the heroku config vars within the project.
 
@@ -257,7 +260,7 @@ Environment variables were stored in an env.py for local development for securit
 
 ### Colour-Scheme
 
-The main color schemes for the website are black (Bootstrap4 navbar-dark green ) navs.
+The main color schemes for the website are black (Bootstrap4 navbar-dark green ) navs and a mix of white and #868e96 backgrounds.
 
 ### Typography
 
