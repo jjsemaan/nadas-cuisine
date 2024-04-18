@@ -35,7 +35,7 @@ The project enabled issues, prioritized under the labels, Must have, should have
 
 The Kanban board was created using github projects and can be located [here](https://github.com/users/jjsemaan/projects/4) and can be viewed to see more information on the project cards. All issues have a full set of acceptance criteria in order to define the functionality that marks that issue as complete.
 
-![Kanban image]()
+![Kanban image](static/img/kanban.JPG)
 
 #### Milestones
 
