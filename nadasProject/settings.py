@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-jjsemaan-nadas-cuisine-vm5266xi9n.us1.codeanyapp.com',
+    '8000-jjsemaan-nadascuisine-9o9xost840w.ws.codeinstitute-ide.net',
     '.herokuapp.com'
 ]
 
