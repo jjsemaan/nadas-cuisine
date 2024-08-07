@@ -16,13 +16,13 @@ class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
         max_length=30,
         required=False,
-        help_text="Optional"
+        help_text="Required"
         )
 
     last_name = forms.CharField(
         max_length=30,
         required=False,
-        help_text="Optional"
+        help_text="Required"
         )
 
     email = forms.EmailField(
