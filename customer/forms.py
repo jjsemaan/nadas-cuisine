@@ -52,6 +52,11 @@ class SignUpForm(UserCreationForm):
             "password2",
         ]
 
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].label = "First Name*"
+        self.fields['last_name'].label = "Last Name*"
+
     def save(self, commit=True):
         """
         Saves the form's data to the User model and associated Profile model.
