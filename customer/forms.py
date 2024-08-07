@@ -85,6 +85,11 @@ class UserForm(forms.ModelForm):
     and fields are used.
     """
 
+    username = forms.CharField(required=True)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+
     class Meta:
         model = User
         fields = [
@@ -109,6 +114,9 @@ class ProfileForm(forms.ModelForm):
         location (forms.CharField):
             Location/address of the user labeled as 'Address'.
     """
+
+    phone_number = forms.CharField(required=True)
+    location = forms.CharField(required=True, label="Address")
 
     class Meta:
         model = Profile
