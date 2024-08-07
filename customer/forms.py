@@ -32,12 +32,12 @@ class SignUpForm(UserCreationForm):
 
     phone_number = forms.CharField(
         max_length=15,
-        required=False
+        required=True
         )
 
     location = forms.CharField(
         max_length=100,
-        required=False,
+        required=True,
         label='Address'
         )
 
