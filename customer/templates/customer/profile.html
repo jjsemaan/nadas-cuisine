@@ -17,7 +17,31 @@
         <p><span class="font-weight-bold">Last Login:</span> {{ user.last_login }}</p>
         <a href="{% url 'profile_update' %}" class="btn btn-sm btn-dark shadow-sm">Update Profile</a>
       </div>
+      <div>
+        <h2>Order History</h2>
+        {% if orders %}
+        <ul>
+          {% for order in orders %}
+          <li>
+            Order ID: {{ order.id }} <br>
+            Total Price: {{ order.price }} <br>
+            Delivery Date: {{ order.delivery_date }} <br>
+            Items:
+            <ul>
+              {% for item in order.items.all %}
+              <li>{{ item.name }} - ${{ item.price }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>You have no previous orders.</p>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
+
+
 {% endblock content %}

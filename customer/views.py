@@ -113,6 +113,11 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     """
     template_name = "customer/profile.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['orders'] = OrderModel.objects.filter(user_id=self.request.user.id)
+        return context
+
 
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
     """
