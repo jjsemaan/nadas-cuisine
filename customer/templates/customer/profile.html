@@ -1,6 +1,5 @@
 {% extends 'customer/base.html' %}
 {% load static %}
-
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -17,24 +16,38 @@
         <p><span class="font-weight-bold">Last Login:</span> {{ user.last_login }}</p>
         <a href="{% url 'profile_update' %}" class="btn btn-sm btn-dark shadow-sm">Update Profile</a>
       </div>
-      <div>
+      <div class="card-body">
         <h2>Order History</h2>
         {% if orders %}
-        <ul>
-          {% for order in orders %}
-          <li>
-            Order ID: {{ order.id }} <br>
-            Total Price: {{ order.price }} <br>
-            Delivery Date: {{ order.delivery_date }} <br>
-            Items:
-            <ul>
-              {% for item in order.items.all %}
-              <li>{{ item.name }} - ${{ item.price }}</li>
-              {% endfor %}
-            </ul>
-          </li>
-          {% endfor %}
-        </ul>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Delivery Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+            <tr data-toggle="collapse" data-target="#orderItems{{ order.id }}" class="accordion-toggle">
+              <td>{{ order.id }}</td>
+              <td>€{{ order.price }}</td>
+              <td>{{ order.delivery_date }}</td>
+            </tr>
+            <tr>
+              <td colspan="3" class="hiddenRow">
+                <div class="collapse" id="orderItems{{ order.id }}">
+                  <ul>
+                    {% for item in order.items.all %}
+                    <li>{{ item.name }} - €{{ item.price }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
         {% else %}
         <p>You have no previous orders.</p>
         {% endif %}
@@ -42,6 +55,4 @@
     </div>
   </div>
 </div>
-
-
 {% endblock content %}
