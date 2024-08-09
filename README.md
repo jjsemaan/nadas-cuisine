@@ -326,6 +326,12 @@ Website was tested manually as presented in the below tables.
 * Testing for Account and Profile
 ![Testing for Account and Profile](static/img/testing-account.JPG)
 
+* Testing for Admin
+![Testing for Admin](static/img/testing-admin.JPG)
+
+* Testing for Orders
+![Testing for Orders](static/img/testing-orders.JPG)
+
 ## Deployment
 
 ### Version Control
