@@ -312,7 +312,19 @@ All images on the website were generated using Adobe Firefly AI.
 
 ## Testing
 
-All tested manually.
+Website was tested manually as presented in the below tables.
+
+* Testing for Logged-out Visitor
+![Testing for Logged-out Visitor](static/img/testing-logout-visitor.JPG)
+
+* Testing for Logged-in Visitor
+![Testing for Logged-in Visitor](static/img/testing-login-visitor.JPG)
+
+* Testing for Register, Log In, Log Out and Change Password
+![Testing for Register, Log In, Log Out and Change Password](static/img/testing-register.JPG)
+
+* Testing for Account and Profile
+![Testing for Account and Profile](static/img/testing-account.JPG)
 
 ## Deployment
 
